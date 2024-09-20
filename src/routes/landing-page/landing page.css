@@ -551,21 +551,22 @@ main {
   border: 2px solid black;
 }
 
+.show-popup {
+  display: block !important;
+}
+
 .close {
-  position: absolute;
-  top: 2px;
-  right: 2px;
-  font-size: 20px;
+  position: relative;
+  top: -4px;
+  right: 4px;
+  font-size: 34px;
   cursor: pointer;
-  padding: 3px 5px;
-  transition: 0.1s ease;
+  transition: 0.2s ease;
+  color: rgba(0, 0, 0, 0.514);
 }
 
 .close:hover {
-  background-color: red;
-  color: white;
-  padding: 3px 5px;
-  border-radius: 2px;
+  color: black;
 }
 
 /* Fin de la Tarjeta de Volver */

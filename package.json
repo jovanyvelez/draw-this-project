@@ -1,5 +1,5 @@
 {
-	"name": "draw-this",
+	"name": "draw-this-project",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -39,4 +39,5 @@
 		"dotenv": "^16.4.5",
 		"drizzle-orm": "^0.33.0"
 	}
+
 }
