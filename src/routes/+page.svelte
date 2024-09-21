@@ -1,16 +1,17 @@
 <script lang="ts">
-	import './inicio.css';
+	import "$lib/CSS/inicio.css";
 	import logo from '$lib/IMAGES/IMG-20231013-WA0009.jpg';
 	import { onMount } from 'svelte';
 
 	// TARJETA DEL POPUP
-	let isPopupVisible = false;
+	let isPopupVisible1 = false;
 	let Terms = false;
-	// Función para alternar la visibilidad del popup
-	function togglePopup() {
-		isPopupVisible = !isPopupVisible;
 
-		if (!isPopupVisible) {
+	// Función para alternar la visibilidad del popup
+	function togglePopup1() {
+		isPopupVisible1 = !isPopupVisible1;
+
+		if (!isPopupVisible1) {
 			Terms = true;
 		}
 	}
@@ -49,6 +50,7 @@
 		const eyeIcon2 = document.getElementById('togglePassword2') as HTMLElement;
 		eyeIcon2.addEventListener('click', () => togglePassword(passwordInput2, eyeIcon2));
 	});
+
 </script>
 
 <svelte:head>
@@ -58,16 +60,13 @@
 	<title>Bienvenido a Draw This</title>
 	<link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css" />
 	<link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" />
-	<link
-		rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-	/>
+	<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 </svelte:head>
 
 <div id="container" class="container">
 	<div class="form-container login-container">
 		<img src={logo} alt="" />
-		<form action="$routes/landing-page/+page.svelte">
+		<form action="/landing-page">
 			<h1>Inicia Sesión</h1>
 			<div class="input-box">
 				<label class="input-label" for="emailInput">Correo Electrónico</label>
@@ -108,7 +107,7 @@
 
 	<div class="form-container register-container">
 		<img src={logo} alt="" />
-		<form action="$routes/landing-page/+page.svelte">
+		<form action="/landing-page">
 			<h1>Registrate</h1>
 			<div class="input-box">
 				<label class="input-label" for="usernameInput">Usuario</label>
@@ -153,7 +152,7 @@
 			<div class="terms-checkbox">
 				<input type="checkbox" id="terms-checkbox" required bind:checked={Terms} />
 				<label for="terms-checkbox"></label>
-				<span class="small-text">Acepto los</span><a href="#terms" on:click={togglePopup}
+				<span class="small-text">Acepto los</span><a href="#terms" on:click={togglePopup1}
 					>Términos y Condiciones</a
 				>
 			</div>
@@ -184,17 +183,17 @@
 	</div>
 </div>
 
-{#if isPopupVisible}
-	<div id="myPopup" class="popup {isPopupVisible ? 'show-popup' : ''}">
+{#if isPopupVisible1}
+	<div id="myPopup" class="popup {isPopupVisible1 ? 'show-popup' : ''}">
 		<div class="popup-content">
 			<div class="header-card">
 				<h2>Términos y Condiciones</h2>
 				<span
 					role="button"
 					class="close"
-					on:click={togglePopup}
+					on:click={togglePopup1}
 					tabindex="0"
-					on:keypress={(e) => e.key === 'Enter' && togglePopup()}>&times;</span
+					on:keypress={(e) => e.key === 'Enter' && togglePopup1()}>&times;</span
 				>
 			</div>
 			<div class="body-card">
@@ -255,7 +254,7 @@
 				</p>
 			</div>
 			<footer class="popup-footer">
-				<button class="button" on:click={togglePopup}>Acepto</button>
+				<button class="button" on:click={togglePopup1}>Acepto</button>
 			</footer>
 		</div>
 	</div>

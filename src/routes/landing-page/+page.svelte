@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import '$lib/CSS/landing page.css';
 	import Uno from '$lib/IMAGES/17b68c2b-ad82-46be-821d-7373ceeecaf5.jpg';
 	import Dos from '$lib/IMAGES/ee6d8afd-3406-4228-b285-de7b0ea8c97d.jpg';
 	import Tres from '$lib/IMAGES/calle.jpg';
 	import Cuatro from '$lib/IMAGES/Pixel Art.jpg';
 	import Cinco from '$lib/IMAGES/Arte.jpg';
+	import logo from '$lib/IMAGES/IMG-20231013-WA0009.jpg';
 	import logo1 from '$lib/IMAGES/logo-1.png';
 	import logo2 from '$lib/IMAGES/logo-2.png';
 	import logo3 from '$lib/IMAGES/logo-3.png';
@@ -15,7 +17,6 @@
 	import image2 from '$lib/IMAGES/dibujando.jpg';
 	import image3 from '$lib/IMAGES/material.jpg';
 	import footer from '$lib/IMAGES/1697232378791.png';
-	import './landing page.css';
 
 	// CARRUSEL DE IMAGENES
 
@@ -33,10 +34,10 @@
 
 	// TARJETA DEL POPUP
 
-	let isPopupVisible = false;
+	let isPopupVisible2 = false;
 
-	function togglePopup() {
-		isPopupVisible = !isPopupVisible;
+	function togglePopup2() {
+		isPopupVisible2 = !isPopupVisible2;
 	}
 </script>
 
@@ -48,33 +49,33 @@
 
 <div class="menu-container">
 	<nav>
-		<img src="../IMAGES/IMG-20231013-WA0009.jpg" alt="" class="logo" />
+		<img src={logo} alt="" class="logo" />
 		<ul class="menu">
-			<li><a href="../HTML/cursos.html">Cursos</a></li>
+			<li><a href="/cursos">Cursos</a></li>
 			<li><a href="../Contacto/+page.svelte">Contacto</a></li>
-			<li><a href="../HTML/acerca de.html">Acerca de</a></li>
-			<li><a href="../HTML">Ajustes</a></li>
-			<li><button on:click={togglePopup} class="custom-button">Volver</button></li>
+			<li><a href="/acerca-de">Acerca de</a></li>
+			<li><a href="#In Process">Ajustes</a></li>
+			<li><button on:click={togglePopup2} class="custom-button">Volver</button></li>
 		</ul>
 	</nav>
 
-	{#if isPopupVisible}
-		<div id="myPopup" class="popup {isPopupVisible ? 'show-popup' : ''}">
+	{#if isPopupVisible2}
+		<div id="myPopup" class="popup {isPopupVisible2 ? 'show-popup' : ''}">
 			<div class="popup-content">
-				<span
+				<div class="header-card">
+					<span
 					role="button"
 					class="close"
-					on:click={togglePopup}
+					on:click={togglePopup2}
 					tabindex="0"
-					on:keypress={(e) => e.key === 'Enter' && togglePopup()}>&times;</span
+					on:keypress={(e) => e.key === 'Enter' && togglePopup2()}>&times;</span
 				>
-				<div class="header-card">
 					<div class="content-card">
 						<span class="title-card">¿Estás seguro de Salir?</span>
 						<p class="message">Si es así, ¡esperamos que vuelvas <br /> pronto!</p>
 					</div>
 					<div class="actions">
-						<a href="../HTML/Inicio.html">
+						<a href="/">
 							<button type="button" class="enviar">Salir</button>
 						</a>
 					</div>
